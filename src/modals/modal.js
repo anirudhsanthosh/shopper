@@ -24,10 +24,14 @@ class ParentModal{
     }
 
     new(){
-        const stmt = this.#db.prepare(`INSERT INTO ${this.#table} (name, age) VALUES (?, ?)`);
-        const info = stmt.run('Joey', 2);
-
-        console.log(info.changes);
+        try{
+            const stmt = this.#db.prepare(`INSERT INTO ${this.#table} (name, parent) VALUES (?, ?)`);
+            const info = stmt.run('Joey', 2);
+            console.log(info);
+        }
+        catch(e){
+            console.error(e);
+        }
     }
 
     delete(){

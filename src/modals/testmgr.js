@@ -1,5 +1,6 @@
 let dbmgr = require("./dbmgr");
 const {products} = require('./product');
+const {Categories} = require('./category');
 let db = dbmgr.db;
 
 exports.getNames = ()=>{
@@ -11,3 +12,6 @@ exports.getNames = ()=>{
 
 let a = new products(db);
 console.log(a.set())
+
+let categories = new Categories(db);
+categories.new();
