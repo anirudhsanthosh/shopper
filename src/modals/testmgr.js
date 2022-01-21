@@ -1,4 +1,5 @@
 let dbmgr = require("./dbmgr");
+const {products} = require('./product');
 let db = dbmgr.db;
 
 exports.getNames = ()=>{
@@ -7,3 +8,6 @@ exports.getNames = ()=>{
     let res = stmnt.all();
     return res;
 }
+
+let a = new products(db);
+console.log(a.set())
