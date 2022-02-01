@@ -5,6 +5,7 @@
 class ParentModal {
   #db;
   #table;
+  columns = [];
   constructor(connection, table) {
     if (typeof connection !== "object") {
       throw new Error(
@@ -13,6 +14,9 @@ class ParentModal {
     }
     this.#db = connection;
     this.#table = table;
+
+    let columns = this.getqry(`PRAGMA table_info(${table});`).status;
+    if (columns) this.columns = columns;
   }
   /**
    * function for prepare the input array to placeolders and columns
@@ -158,6 +162,19 @@ class ParentModal {
   }
 
   display() {}
+  getqry(sql) {
+    const stat = {
+      error: null,
+      status: null,
+    };
+    try {
+      const stmt = this.#db.prepare(sql);
+      stat.status = stmt.all();
+    } catch (e) {
+      stat.error = e;
+    }
+    return stat;
+  }
 }
 
 exports.parentModal = ParentModal;

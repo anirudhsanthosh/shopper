@@ -1,0 +1,31 @@
+const dbmgr = require("./dbmgr");
+const { UrpUsers } = require("./urpUsers");
+const { ItemCategories } = require("./itemCategories");
+const { ItemUnits } = require("./ItemUnits");
+const { ItemUnitsMapping } = require("./ItemUnitsMapping");
+const { TaxCode } = require("./TaxCode");
+const { TaxMapping } = require("./TaxMapping");
+const { Items } = require("./Items");
+// const { TaxGroup } = require("./taxGroup");
+// const { Brand } = require("./brand");
+// const { Customers } = require("./customers");
+// const { TaxList } = require("./taxList");
+// const { TransactionTypes } = require("./transactionTypes");
+// const { UserPermissions } = require("./userPermissions");
+// const { Users } = require("./users");
+
+const db = dbmgr.db;
+
+exports.UrpUsers = new UrpUsers(db);
+exports.ItemCategories = new ItemCategories(db);
+exports.ItemUnits = new ItemUnits(db);
+exports.ItemUnitsMapping = new ItemUnitsMapping(db);
+exports.Items = new Items(db);
+// exports.customers = new Customers(db);
+exports.TaxCode = new TaxCode(db);
+exports.TaxMapping = new TaxMapping(db);
+// exports.taxGroup = new TaxGroup(db);
+// exports.taxList = new TaxList(db);
+// exports.transactionTypes = new TransactionTypes(db);
+// exports.userPermissions = new UserPermissions(db);
+// exports.users = new Users(db);

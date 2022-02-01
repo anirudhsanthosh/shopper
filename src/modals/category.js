@@ -1,12 +1,10 @@
-const {parentModal} = require('./modal');
+const { parentModal } = require("./modal");
 
-class Categories extends parentModal{
- 
-    constructor(connection){
-        super(connection,"categories");
-        
-    }
-
+class Categories extends parentModal {
+  columns = ["id", "name", "parent"];
+  constructor(connection) {
+    super(connection, "categories");
+  }
 }
 
 exports.Categories = Categories;

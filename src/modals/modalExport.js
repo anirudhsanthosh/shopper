@@ -1,0 +1,31 @@
+const dbmgr = require("./dbmgr");
+const { Products } = require("./product");
+const { Categories } = require("./category");
+const { Color } = require("./color");
+const { Article } = require("./article");
+const { MeasuringUnit } = require("./measuringUnit");
+const { Permissions } = require("./permissions");
+const { Suppliers } = require("./suppliers");
+const { TaxGroup } = require("./taxGroup");
+const { Brand } = require("./brand");
+const { Customers } = require("./customers");
+const { TaxList } = require("./taxList");
+const { TransactionTypes } = require("./transactionTypes");
+const { UserPermissions } = require("./userPermissions");
+const { Users } = require("./users");
+
+const db = dbmgr.db;
+
+exports.categories = new Categories(db);
+exports.products = new Products(db);
+exports.color = new Color(db);
+exports.article = new Article(db);
+exports.brand = new Brand(db);
+exports.customers = new Customers(db);
+exports.measuringUnit = new MeasuringUnit(db);
+exports.permissions = new Permissions(db);
+exports.taxGroup = new TaxGroup(db);
+exports.taxList = new TaxList(db);
+exports.transactionTypes = new TransactionTypes(db);
+exports.userPermissions = new UserPermissions(db);
+exports.users = new Users(db);

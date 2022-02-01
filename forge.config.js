@@ -55,11 +55,15 @@ module.exports = {
               },
               readPackageJson: async (forgeConfig, platform, arch) => {
                 console.log('reading package.json');
-                
-                fs.copyFile('./.webpack/renderer/main_window/native_modules/billing_app_v2.db', './src/db/billing_app_v2.db', (err) => {
-                    if (err) throw err;
-                    console.warn('db was copied to destination');// every time webpack runs, it will copy new db to .webpack folder with this we can save old dband use the same again
-                  });
+                try{
+                  fs.copyFile('./.webpack/renderer/main_window/native_modules/billing_app_v2.db', './src/db/billing_app_v2.db', (err) => {
+                      if (err) console.log(err);
+                      console.warn('\n\ndb was copied to destination\n\n');// every time webpack runs, it will copy new db to .webpack folder with this we can save old dband use the same again
+                    });
+                }
+                catch(e){
+                  console.log(e);
+                }
               },
         },
   }

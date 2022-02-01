@@ -10,8 +10,25 @@ exports.getNames = ()=>{
     return res;
 }
 
-let a = new products(db);
-console.log(a.set())
+// let a = new products(db);
+// console.log(a.set())
 
 let categories = new Categories(db);
-categories.new();
+
+let testData = [
+    {
+        name : "food",
+        parent: 0,
+    },
+    {
+        name : "pastha",
+        parent: 0,
+    },
+    {
+        name : "maggie",
+        parent: 0,
+    }
+];
+console.log(categories.new(testData));
+console.log(categories.getAll());
+console.log(categories.get("parent = 0"));
